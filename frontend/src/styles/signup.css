@@ -1,0 +1,125 @@
+.sign-up-button {
+  padding: 6px 10px;
+  width: 80px;
+}
+.sign-up-page {
+  width: 100%;
+  height: 100vh;
+  overflow-y:hidden;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  align-items: center;
+  background-image: url("../assets/lunaslogbg.png");
+  background-size: cover;
+  background-position: center;
+}
+.logo-image {
+  width: 90px;
+  height: 90px;
+}
+.sign-up-page h1 {
+  font-size: 24px;
+  margin: 10px 0px 0px 0px;
+  text-align: center;
+}
+.lunas-text {
+  font-size: 68px;
+  font-family: "Fjalla One", sans-serif;
+  font-weight: 900;
+  background-image: url("../assets/cliptext.png");
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.ai-text {
+  font-size: 32px;
+}
+.app-slogan {
+  text-align: center;
+  font-size: 13px;
+}
+.sign-up-page form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 30vw;
+}
+
+.sign-up-page form div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  justify-content: center;
+  align-items: center;
+}
+.sign-up-page input {
+  padding: 6px 10px;
+  font-size: 15px;
+  width: 90%;
+}
+.sign-up-page input:focus {
+  outline: 1.2px solid #7bccf3;
+  border: 0.5px solid #7bccf3;
+}
+.password-container {
+  position: relative;
+}
+.visible-password-container {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  /* left: 8rem; */
+  right: 10px;
+  top: 2px;
+  cursor: pointer;
+}
+
+.sign-up-button {
+  width: 100%;
+  cursor: not-allowed;
+  background-color: rgb(206, 206, 206);
+  border: none;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 4px;
+}
+.sign-up-button.enabled {
+  background-color: var(--primary-color);
+  cursor: pointer;
+  color: var(--secondary-color);
+}
+.feedback-message {
+  font-size: 15px;
+  font-weight: 800;
+}
+.feedback-message.error {
+  color: red;
+}
+.helper-text {
+  margin: 2px;
+  font-size: 12px;
+}
+.visible-password-button {
+  color: gray;
+}
+
+@media (max-width: 900px) {
+  .sign-up-page form {
+    width: 36vw;
+  }
+}
+@media (max-width: 720px) {
+  .sign-up-page form {
+    width: 42vw;
+  }
+}
+@media (max-width: 620px) {
+  .sign-up-page form {
+    width: 62vw;
+  }
+}
