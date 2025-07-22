@@ -4,7 +4,7 @@
 }
 .sign-up-page {
   width: 100%;
-  height: 100vh;
+  height: 93vh;
   overflow-y:hidden;
   display: flex;
   flex-direction: column;
@@ -96,6 +96,7 @@
 .feedback-message {
   font-size: 15px;
   font-weight: 800;
+  color: rgb(0, 176, 0);
 }
 .feedback-message.error {
   color: red;
@@ -107,7 +108,11 @@
 .visible-password-button {
   color: gray;
 }
-
+.redirect-link{
+  font-size: 13px;
+  font-weight: 900;
+  text-align: center;
+}
 @media (max-width: 900px) {
   .sign-up-page form {
     width: 36vw;

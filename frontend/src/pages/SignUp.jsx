@@ -4,6 +4,7 @@ import lunasLogo from "../assets/lunaslogo.png";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Link } from "react-router-dom";
 import "../styles/signup.css";
 
 const SignUp = () => {
@@ -36,7 +37,7 @@ const SignUp = () => {
     setPasswordVisible(false);
     setTimeout(() => {
       setPasswordVisible(true);
-    },2000)
+    }, 2000);
   };
 
   const handleSignUp = async (e) => {
@@ -99,7 +100,7 @@ const SignUp = () => {
             )}
             <input
               type="text"
-              autoComplete="username" 
+              autoComplete="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Enter a username"
@@ -155,6 +156,12 @@ const SignUp = () => {
             )}
           </button>
         </form>
+        <p className="redirect-link">
+          Already have an account?
+          <span>
+            <Link to="/login"> Login</Link>
+          </span>
+        </p>
       </div>
     </div>
   );
