@@ -41,6 +41,7 @@ print(response)
 
 class signUpRequest(BaseModel):
     email: str
+    username: str
     password: str
     
 @app.post('/sign_up')
@@ -50,6 +51,7 @@ def signup_user(data: signUpRequest):
          {
         "email": data.email,
         "password": data.password,
+        "options": {"data": {"username":  data.username}},
          }
         )
         if result.session:
