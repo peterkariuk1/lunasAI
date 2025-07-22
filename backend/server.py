@@ -64,3 +64,28 @@ def signup_user(data: signUpRequest):
         return  {"success":True, "message": "Sign up complete. Please check your email to confirm"}
     except Exception as e:
         return{"success": False, "error": str(e)}
+    
+    
+   
+    
+class loginRequest(BaseModel):
+    email:str 
+    password:str 
+    
+@app.post("/login")
+def login_user(data: loginRequest):
+    try:
+        result = supabase.auth.sign_in_with_password(
+            {
+                "email": data.email,
+                "password": data.password
+            }
+        )
+        return{"success": True, "message": "Login successful"}
+    except Exception as e:
+        return{"success": False, "error": str(e)}
+            
+        
+   
+        
+            
