@@ -1,0 +1,8 @@
+.logout-modal{
+    visibility: hidden;
+}
+.logout-modal.visible{
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+}
