@@ -1,28 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 const Home = () => {
-  const [logoutWarning, setLogoutWarning] = useState(null);
-  const displayLogoutModal = () => {
-    setLogoutWarning(true);
+  const navigate = useNavigate();
+  const { logout } = useAuth();
+  useEffect(() => {
+    const hash = window.location.hash;
+    const params = new URLSearchParams(hash.slice(1));
+
+    const accessToken = params.get("access_token");
+    const refreshToken = params.get("refresh_token");
+
+    if (accessToken) {
+      localStorage.setItem("access_token", accessToken);
+      if (refreshToken) {
+        localStorage.setItem("refresh_token", refreshToken);
+      }
+
+      navigate("/home", { replace: true });
+    }
+  }, [navigate]);
+
+  const logoutUser = () => {
+    logout();
   };
-  const handleLogout = () => {
-    localStorage.removeItem("access_token");
-    setLogoutWarning(null);
-  };
-  const handleCancelLogout = () => {
-    setLogoutWarning(null);
-  };
+
   return (
     <div>
       Home Page
-      <button onClick={displayLogoutModal}>Logout</button>
-      <div
-        className={`logout-modal ${logoutWarning === true ? "visible" : ""}`}
-      >
-        <p>Do you really want to logout?</p>
-        <button onClick={handleLogout}>Confirm</button>
-        <button onClick={handleCancelLogout}>Cancel</button>
-      </div>
+      <button className="logout-button" onClick={logoutUser}>
+        Logout
+      </button>
     </div>
   );
 };

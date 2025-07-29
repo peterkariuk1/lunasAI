@@ -1,12 +1,14 @@
-import React from 'react'
-import notFoundSVG from '../assets/notFound.svg';
+import React from "react";
+import notFoundSVG from "../assets/notFound.svg";
 
 const NotFound = () => {
-    return (
-        <div>
-            <img src={notFoundSVG} />
-        </div>
-    )
-}
+  return (
+    <div className="not-found-page">
+      <img src={notFoundSVG} />
+      <h1>404</h1>
+      <p>Oops... Page not Found</p>
+    </div>
+  );
+};
 
-export default NotFound
+export default NotFound;
