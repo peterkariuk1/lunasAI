@@ -15,9 +15,9 @@ function App() {
       <Route
         path="/lunas"
         element={
-          <PrivateRoute>
-            <Home />
-          </PrivateRoute>
+            <PrivateRoute>
+              <Home />
+            </PrivateRoute>
         }
       />
     </Routes>
