@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import lunasLogo from "../assets/lunaslogo.png";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import CircularProgress from "@mui/material/CircularProgress";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import "../styles/signup.css";
 
 const Login = () => {
+  const { login, isAuthenticated } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -27,6 +28,12 @@ const Login = () => {
     setIsValid(allValid);
   }, [email, password]);
 
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate("/lunas", { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
+
   const togglePasswordVisibility = () => {
     setPasswordVisible(false);
     setTimeout(() => {
@@ -37,24 +44,16 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    try {
-      const response = await axios.post("http://127.0.0.1:8000/login", {
-        email,
-        password,
-      });
-      if (response.data.success) {
-        setMessage(response.data.message);
-        navigate("/lunas");
-      } else {
-        setMessage(response.data.error);
-      }
-      setPassword("");
-      setEmail("");
-    } catch (error) {
-      setMessage(error);
-    } finally {
-      setIsLoading(false);
+    const { success, message } = await login(email, password);
+    if (success) {
+      setMessage(message);
+    } else {
+      setMessage(message);
+      navigate("/login");
     }
+    setPassword("");
+    setEmail("");
+    setIsLoading(false);
   };
   return (
     <div className="sign-up-page">
@@ -72,9 +71,9 @@ const Login = () => {
 
         <form onSubmit={handleLogin}>
           <p
-          className={`login-feedback-message ${
-            message.includes("successful") ? "success" : ""
-          }`}
+            className={`login-feedback-message ${
+              message.includes("successful") ? "success" : ""
+            }`}
           >
             {message}
           </p>
