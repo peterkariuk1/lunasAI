@@ -53,15 +53,11 @@ const SignUp = () => {
         username,
       });
       if (response.data.success) {
-        if (response.access_token) {
-          setMessage("Sign up successful!");
-          // Redirect to dashboard or home
-        } else {
-          setMessage(successfulMessage);
-          setUsername("");
-          setPassword("");
-          setEmail("");
-        }
+        setMessage(successfulMessage);
+        localStorage.setItem("is_logged_in", "true");
+        setUsername("");
+        setPassword("");
+        setEmail("");
       }
     } catch (error) {
       setMessage(errorMessage + error);
