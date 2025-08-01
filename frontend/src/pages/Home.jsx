@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+import "../styles/home.css";
+import Header from "../components/Header";
+import Hero from "../components/Hero";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const navigate = useNavigate();
-  const { logout } = useAuth();
   useEffect(() => {
     const hash = window.location.hash;
     const params = new URLSearchParams(hash.slice(1));
@@ -22,16 +24,11 @@ const Home = () => {
     }
   }, [navigate]);
 
-  const logoutUser = () => {
-    logout();
-  };
-
   return (
-    <div>
-      Home Page
-      <button className="logout-button" onClick={logoutUser}>
-        Logout
-      </button>
+    <div className="home-page">
+      <Header />
+      <Hero />
+      <Footer />
     </div>
   );
 };

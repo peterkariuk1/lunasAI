@@ -1,0 +1,100 @@
+.hero {
+  background-image: linear-gradient(to top, #0189e0 40%, #9ad0f248);
+  height: 30vw;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.hero .top {
+  display: flex;
+  justify-content: space-between;
+}
+.hero img {
+  width: 310px;
+}
+.hero .right {
+  width: 65%;
+  padding: 20px;
+}
+.hero .right h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+.hero .right p {
+  color: var(--secondary-color);
+  font-weight: 400;
+}
+.steps-cards {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 73.3%;
+  bottom: -100px;
+  left: 318px;
+}
+.step-card {
+  background-color: #ffffff;
+  width: 183px;
+  padding: 10px 12px 16px 12px;
+  border-radius: 12px;
+  box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.167);
+}
+.step-card h1 {
+  font-size: 17px;
+  text-align: center;
+  color: var(--primary-color);
+}
+.step-card-icon {
+  color: var(--dark-color);
+  display: flex;
+  justify-content: center;
+}
+.step-card-icon.one {
+  color: rgb(231, 164, 9);
+}
+.step-card-icon.three {
+  color: green;
+}
+.step-card-icon.four {
+  color: red;
+}
+.step-card p {
+  font-size: 13px;
+  text-align: center;
+}
+.cta {
+  width: 35%;
+}
+.cta-wrapper{
+  display: flex;
+  justify-content: center;
+  padding: 140px 0px 10px 0px;
+}
+
+@media (max-width: 1040px) {
+  .steps-cards {
+    position: static;
+    width: 100%;
+  }
+  .hero {
+    height: 28vw;
+    display: flex;
+    flex-direction: column;
+    position: static;
+  }
+  .step-card {
+    background-color: #ffffff;
+    width: 203px;
+    padding: 10px 12px 16px 12px;
+    border-radius: 12px;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.167);
+  }
+
+  .hero img {
+    width: 240px;
+  }
+  .cta-wrapper{
+  padding: 20px 0px;
+}
+}
