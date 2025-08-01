@@ -1,8 +1,69 @@
-.logout-modal{
-    visibility: hidden;
+.home-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px 20px;
 }
-.logout-modal.visible{
-    visibility: visible;
-    display: flex;
-    flex-direction: column;
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: linear-gradient(#bddeee3a, #ffffff);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+nav .left {
+  margin: 0px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+nav .left h1 {
+  font-size: 30px;
+  font-family: "Fjalla One", sans-serif;
+  font-weight: 900;
+  background-image: url("../assets/cliptext.png");
+  background-size: cover;
+  background-position: center;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+nav .left img {
+  width: 55px;
+  height: 55px;
+}
+
+nav .right {
+  margin: 0px 20px;
+  display: flex;
+  gap: 10px;
+}
+nav .right button {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 22px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease transform, 0.3s ease background-color;
+}
+.logout-button {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+}
+.logout-button:hover {
+  background-color: #018ae0bc;
+  transform: scale(1.03);
+}
+
+.history-button {
+  background-color: transparent;
+  border: 1.8px solid #0189e0;
+}
+.history-button:hover {
+  transform: scale(1.03);
 }
