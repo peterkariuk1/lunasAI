@@ -28,7 +28,6 @@ const SpeechRecg = () => {
     SpeechRecognition.stopListening();
     setContinuous(false);
   };
-  const handleResetTranscript = resetTranscript;
 
   return (
     <div>
@@ -36,13 +35,6 @@ const SpeechRecg = () => {
       <button onClick={listening ? handleStopListening : handleListen}>
         {listening ? <MicOffIcon /> : <MicIcon />}
       </button>
-      <button
-        className={`reset-transcript-button ${transcript !== "" ? "live" : ""}`}
-        onClick={handleResetTranscript}
-      >
-        Reset
-      </button>
-      <p>{transcript}</p>
     </div>
   );
 };
