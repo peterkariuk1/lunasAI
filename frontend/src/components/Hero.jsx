@@ -4,7 +4,14 @@ import MicIcon from "@mui/icons-material/Mic";
 import PreviewIcon from "@mui/icons-material/Preview";
 import GradingIcon from "@mui/icons-material/Grading";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useNavigate } from "react-router-dom";
+
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleNavigateToPresent = () => {
+    navigate("/present-patient");
+  }
   const stepCards = [
     {
       index: "one",
@@ -45,9 +52,9 @@ const Hero = () => {
               diagnostics and actionable care plans with clarity and speed in
               just few steps.
             </p>
-            <button className="cta top">
-              <p className="cta-text">Start Patient Assessment</p>
-            </button>
+              <button onClick={handleNavigateToPresent} className="cta top">
+                <p className="cta-text">Start Patient Assessment</p>
+              </button>
           </div>
         </div>
 
@@ -66,7 +73,7 @@ const Hero = () => {
         </div>
       </section>
       <div className="cta-wrapper">
-        <button className="cta bottom">Start Patient Assessment</button>
+        <button onClick={handleNavigateToPresent} className="cta bottom">Start Patient Assessment</button>
       </div>
     </>
   );
