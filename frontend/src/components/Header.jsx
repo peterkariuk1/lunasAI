@@ -12,7 +12,7 @@ const Header = () => {
   return (
     <nav>
       <div className="left">
-        <img src={lunasLogo} alt="logo" />
+        {/* <img src={lunasLogo} alt="logo" /> */}
         <h1>LunasAI</h1>
       </div>
       <div className="right">

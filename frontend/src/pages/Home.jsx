@@ -25,11 +25,13 @@ const Home = () => {
   }, [navigate]);
 
   return (
-    <div className="home-page">
-      <Header />
-      <Hero />
+    <>
+      <div className="home-page">
+        <Header />
+        <Hero />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
