@@ -30,7 +30,7 @@ const Login = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/lunas", { replace: true });
+      navigate("/present-patient", { replace: true });
     }
   }, [isAuthenticated, navigate]);
 

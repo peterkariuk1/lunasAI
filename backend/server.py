@@ -1,4 +1,4 @@
-from fastapi import FastAPI 
+from fastapi import FastAPI,Request,HTTPException
 import os
 from dotenv import load_dotenv
 from supabase import create_client, Client
@@ -61,7 +61,10 @@ def signup_user(data: signUpRequest):
                 "refresh_token": result.session.refresh_token,
                 "user": result.user
             }
-        return  {"success":True, "message": "Sign up complete. Please check your email to confirm"}
+        return  {
+            "success":True,
+            "message": "Sign up complete. Please check your email to confirm",
+        }
     except Exception as e:
         return{"success": False, "error": str(e)}
     
@@ -84,7 +87,8 @@ def login_user(data: loginRequest):
         return{"success": True, "message": "Login successful"}
     except Exception as e:
         return{"success": False, "error": str(e)}
-            
+    
+
         
    
         

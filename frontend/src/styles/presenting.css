@@ -1,0 +1,8 @@
+
+.reset-transcript-button{
+    display: none;
+    cursor: pointer;
+}
+.reset-transcript-button.live{
+    display: flex;
+}

@@ -4,7 +4,14 @@ import MicIcon from "@mui/icons-material/Mic";
 import PreviewIcon from "@mui/icons-material/Preview";
 import GradingIcon from "@mui/icons-material/Grading";
 import FavoriteIcon from "@mui/icons-material/Favorite";
+import { useNavigate } from "react-router-dom";
+
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const handleNavigateToPresent = () => {
+    navigate("/present-patient");
+  }
   const stepCards = [
     {
       index: "one",
@@ -34,19 +41,20 @@ const Hero = () => {
   return (
     <>
       <section className="hero">
-        <div className="top">
+        <div className="hero-top">
           <div className="left">
             <img src={nurseImage} alt="nurse" />
           </div>
           <div className="right">
             <h1>Turn Patient Symptoms Into Smart, Actionable Care Plans</h1>
-            <p>
-              From symptoms to strategy, our intelligent assistant structures
-              patient data from presenting complaints, history, and appearance
-              into clear diagnostic pathways, prioritized risk levels, and
-              actionable next steps for effective care in just few steps.
+            <p className="hero-desc">
+              Lunas AI streamlines patient presentation into interpretable
+              diagnostics and actionable care plans with clarity and speed in
+              just few steps.
             </p>
-            <button className="cta">Start Patient Assessment</button>
+              <button onClick={handleNavigateToPresent} className="cta top">
+                <p className="cta-text">Start Patient Assessment</p>
+              </button>
           </div>
         </div>
 
@@ -65,7 +73,7 @@ const Hero = () => {
         </div>
       </section>
       <div className="cta-wrapper">
-        <button className="cta bottom">Start Patient Assessment</button>
+        <button onClick={handleNavigateToPresent} className="cta bottom">Start Patient Assessment</button>
       </div>
     </>
   );

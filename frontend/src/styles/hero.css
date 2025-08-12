@@ -6,7 +6,7 @@
   justify-content: space-between;
   position: relative;
 }
-.hero .top {
+.hero .hero-top {
   display: flex;
   justify-content: space-between;
 }
@@ -21,7 +21,7 @@
   font-size: 42px;
   margin-bottom: 10px;
 }
-.hero .right p {
+.hero .right .hero-desc {
   color: var(--secondary-color);
   font-weight: 400;
 }
@@ -64,9 +64,31 @@
   text-align: center;
 }
 .cta {
-  width: 35%;
+  width: 28%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 2px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 1px 3px 6px #00000082;
+  cursor: pointer;
+  transition: 0.15s ease-in-out transform;
 }
-.cta-wrapper{
+.cta.top .cta-text {
+  font-size: 15px;
+  color: var(--dark-color);
+  margin: 0;
+}
+.cta.bottom {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+.cta:hover {
+  box-shadow: 3px 1px 6px #00000082;
+  transform: scale(1.009);
+}
+.cta-wrapper {
   display: flex;
   justify-content: center;
   padding: 140px 0px 10px 0px;
@@ -76,25 +98,113 @@
   .steps-cards {
     position: static;
     width: 100%;
+    display: flex;
   }
   .hero {
-    height: 28vw;
+    height: 46.5vh;
     display: flex;
     flex-direction: column;
     position: static;
   }
+  .cta.top {
+    width: 36%;
+  }
   .step-card {
-    background-color: #ffffff;
     width: 203px;
     padding: 10px 12px 16px 12px;
-    border-radius: 12px;
-    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.167);
   }
 
   .hero img {
     width: 240px;
   }
-  .cta-wrapper{
-  padding: 20px 0px;
+  .cta-wrapper {
+    padding: 310px 0px 30px 0px;
+  }
 }
+@media (max-width: 906px) {
+  .hero .right h1 {
+    font-size: 38px;
+  }
+}
+@media (max-width: 830px) {
+  .steps-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    row-gap: 10px;
+  }
+  .hero .right h1 {
+    font-size: 35px;
+  }
+
+  .cta.top {
+    width: 42%;
+  }
+  .step-card {
+    width: 92%;
+  }
+  .cta-wrapper {
+    padding: 420px 0px 30px 0px;
+  }
+}
+@media (max-width: 785px) {
+  .hero .right h1 {
+    font-size: 33px;
+  }
+  .hero {
+    height: 45vh;
+  }
+  .step-card {
+    width: 86%;
+  }
+  .cta.top {
+    width: 48%;
+  }
+  .hero img {
+    width: 230px;
+  }
+}
+@media (max-width: 710px) {
+  .cta.top {
+    width: 58%;
+  }
+}
+@media (max-width: 665px) {
+  .cta.top {
+    width: 58%;
+  }
+  .cta.top .cta-text {
+    font-size: 13px;
+  }
+  .hero .right h1 {
+    font-size: 28px;
+  }
+  .hero .right .hero-desc {
+    font-size: 12px;
+  }
+}
+@media (max-width: 595px) {
+  .cta {
+    width: 38%;
+  }
+  .cta.top {
+    width: 98%;
+  }
+}
+@media (max-width: 555px) {
+  .hero .right h1 {
+    font-size: 23px;
+  }
+  .hero {
+    height: 45vh;
+  }
+  /* .step-card {
+    width: 86%;
+  }
+  .cta.top {
+    width: 48%;
+  } */
+  .hero img {
+    width: 200px;
+  }
 }

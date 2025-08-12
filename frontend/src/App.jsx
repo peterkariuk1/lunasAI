@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import PrivateRoute from "./components/PrivateRoute";
+import Presenting from "./pages/Presenting";
 
 function App() {
   return (
@@ -13,13 +14,14 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
       <Route
-        path="/lunas"
+        path="/present-patient"
         element={
-            <PrivateRoute>
-              <Home />
-            </PrivateRoute>
+          <PrivateRoute>
+            <Presenting />
+          </PrivateRoute>
         }
       />
+      <Route path="/" element={<Home />} />
     </Routes>
   );
 }

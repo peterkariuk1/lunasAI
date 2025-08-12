@@ -7,7 +7,7 @@ import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import PeopleIcon from "@mui/icons-material/People";
 import LoginIcon from "@mui/icons-material/Login";
 import LinkIcon from "@mui/icons-material/Link";
-import '../styles/footer.css';
+import "../styles/footer.css";
 
 const Footer = () => {
   return (
