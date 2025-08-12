@@ -1,7 +1,8 @@
 import { useAuth } from "../../context/AuthContext";
-import lunasLogo from "../assets/lunaslogo.png";
 import HistoryIcon from "@mui/icons-material/History";
 import LogoutIcon from "@mui/icons-material/Logout";
+import LoginIcon from "@mui/icons-material/Login";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const { logout } = useAuth();
@@ -9,6 +10,14 @@ const Header = () => {
   const logoutUser = () => {
     logout();
   };
+
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavigateToLogin = () => {
+    navigate("/login");
+  };
+
   return (
     <nav>
       <div className="left">
@@ -16,14 +25,25 @@ const Header = () => {
         <h1>LunasAI</h1>
       </div>
       <div className="right">
-        <button className="history-button">
-          <HistoryIcon />
-          History
-        </button>
-        <button className="logout-button" onClick={logoutUser}>
-          <LogoutIcon />
-          Logout
-        </button>
+        {location.pathname !== "/" ? (
+          <button className="history-button">
+            <HistoryIcon />
+            History
+          </button>
+        ) : (
+          ""
+        )}
+        {location.pathname === "/" ? (
+          <button className="logout-button" onClick={handleNavigateToLogin}>
+            <LoginIcon />
+            Login
+          </button>
+        ) : (
+          <button className="logout-button" onClick={logoutUser}>
+            Logout
+            <LogoutIcon />
+          </button>
+        )}
       </div>
     </nav>
   );
