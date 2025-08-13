@@ -2,3 +2,4 @@ pyvevn.cfg
 venv
 __pycache__
 .env
+lunasserviceaccount.json
