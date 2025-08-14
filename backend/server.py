@@ -115,7 +115,7 @@ def login_user(data: loginRequest):
     except Exception as e:
         return{"success": False, "error": str(e)}
 
-@app.post("/upload-image/")
+@app.post("/upload-image")
 async def upload_image(file: UploadFile = File(...)):
     temp_path = f"./temp_{file.filename}"
     with open(temp_path, "wb") as buffer:
